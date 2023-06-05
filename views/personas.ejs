@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Administración de Personas y Mascotas</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .navbar-custom {
+      background-color: #062d57;
+    }
+    .btn-primary {
+      background-color: #062d57;
+    }
+
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-nav .nav-link {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+      <a class="navbar-brand" href="#">Administración</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Personas-Mascotas</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0 ml-auto" action="/persona/:id" method="GET" id="personaForm">
+          <input class="form-control mr-sm-2" type="text" placeholder="Buscar persona por rut" aria-label="Search" name="id" required>
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="row">
+      <div class="col-md-5">
+        <h2>Crear Dueño con sus Mascotas</h2>
+        <form action="/personas" method="POST">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="apellido">Apellido:</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" required>
+          </div>
+          <div class="form-group">
+            <label for="rut">RUT:</label>
+            <input type="text" class="form-control" id="rut" name="rut" required>
+          </div>
+          <div class="form-group">
+            <label for="nombreMascota">Nombre Mascota:</label>
+            <input type="text" class="form-control" id="nombreMascota" name="nombreMascota" required>
+          </div>
+          <div class="form-group">
+            <label for="familiaMascota">Familia Mascota:</label>
+            <input type="text" class="form-control" id="familiaMascota" name="familiaMascota" required>
+          </div>
+          <div class="form-group">
+            <label for="razaMascota">Raza Mascota:</label>
+            <input type="text" class="form-control" id="razaMascota" name="razaMascota" required>
+          </div>
+          <div id="mascotasContainer"></div> <!-- Contenedor para las mascotas dinámicas -->
+          <button type="button" class="btn btn-primary" onclick="agregarMascota()">Agregar Mascota</button>
+          <button type="submit" class="btn btn-primary">Crear</button>
+        </form>
+      </div>
+      <div class="col-md-7">
+        <h2>Listado de Personas y Mascotas</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Rut</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Nombre Mascota</th>
+              <th>Raza</th>
+              <th>Familia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% personas.forEach(function(persona) { %>
+              <tr>
+                <td><%= persona.rut %></td>
+                <td><%= persona.Nombre_persona %></td>
+                <td><%= persona.Apellido %></td>
+                <td><%= persona.Nombre %></td>
+                <td><%= persona.Raza %></td>
+                <td><%= persona.Familia %></td>
+                <td>
+                  <% if (persona.Mascotas && persona.Mascotas.length > 0) { %>
+                    <% persona.Mascotas.forEach(function(mascota) { %>
+                      <ul>
+                        <li><%= mascota.Nombre %></li>
+                      </ul>
+                    <% }) %>
+                  <% } %>
+                </td>
+                <td>
+                  <% if (persona.Mascotas && persona.Mascotas.length > 0) { %>
+                    <% persona.Mascotas.forEach(function(mascota) { %>
+                      <ul>
+                        <li><%= mascota.Familia %></li>
+                      </ul>
+                    <% }) %>
+                  <% } %>
+                </td>
+                <td>
+                  <% if (persona.Mascotas && persona.Mascotas.length > 0) { %>
+                    <% persona.Mascotas.forEach(function(mascota) { %>
+                      <ul>
+                        <li><%= mascota.Raza %></li>
+                      </ul>
+                    <% }) %>
+                  <% } %>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Variable global para el contador
+    let contadorMascotas = 1;
+
+    // Función para agregar dinámicamente campos de mascotas al formulario de crear persona
+    function agregarMascota() {
+      const mascotasContainer = document.getElementById("mascotasContainer");
+      const newMascotaDiv = document.createElement("div");
+      newMascotaDiv.className = "form-group";
+      contadorMascotas++; // Incrementar el contador
+      newMascotaDiv.innerHTML = `
+        <h4>Ingresa La ${contadorMascotas} Mascota para este Dueño</h4>
+        <label for="mascotaNombre">Nombre de la Mascota</label>
+        <input type="text" class="form-control mascota-nombre" required>
+
+        <label for="mascotaEspecie">Familia de la Mascota</label>
+        <input type="text" class="form-control mascota-especie" required>
+
+        <label for="mascotaRaza">Raza de la Mascota</label>
+        <input type="text" class="form-control mascota-raza" required>
+      `;
+      mascotasContainer.appendChild(newMascotaDiv);
+    }
+
+    const personaForm = document.getElementById('personaForm');
+
+    personaForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const id = document.querySelector('input[name="id"]').value;
+      const actionUrl = `/persona/${id}`;
+
+      personaForm.setAttribute('action', actionUrl);
+      personaForm.submit();
+    });
+  </script>
+</body>
+</html>

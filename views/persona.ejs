@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <title>Ver Mascota De Una Persona</title>
+    <style>
+        .bienvenido {
+            background-color: #062d57;
+            height: 75px;
+            color: aliceblue;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5 bienvenido">¡Bienvenido!</h1>
+        <hr>
+        <h2 class="text-center">Listado de Personas con sus Mascotas</h2>
+        <table class="table table-striped mt-5 ">
+            <thead>
+                <tr>
+                    <th scope="col">Número</th>
+                    <th scope="col">Rut</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Nombre Mascota</th>
+                    <th scope="col">Raza Mascota</th>
+                    <th scope="col">Familia Mascota</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% personas.forEach(persona => { %>
+                    <tr>
+                        <td><%= persona.id %></td>
+                        <td><%= persona.rut %></td>
+                        <td><%= persona.Nombre_persona %></td>
+                        <td><%= persona.Apellido %></td>
+                        <td><%= persona.Nombre %></td>
+                        <td><%= persona.Raza %></td>
+                        <td><%= persona.Familia %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
+</html>

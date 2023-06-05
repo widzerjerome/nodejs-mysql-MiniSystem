@@ -1,0 +1,147 @@
+/* Estilos para personas.ejs */
+
+.personas-container {
+    margin-bottom: 20px;
+  }
+  
+  .personas-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .personas-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .personas-table th,
+  .personas-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .personas-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .personas-form {
+    margin-top: 20px;
+  }
+  
+  .personas-form .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .personas-form .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .personas-form .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .personas-form .btn-primary {
+    background-color: #007bff;
+  }
+  
+  .personas-form .btn-primary:hover {
+    background-color: #0069d9;
+  }
+  
+  .personas-form .btn-danger {
+    background-color: #dc3545;
+  }
+  
+  .personas-form .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  /* Estilos para persona.ejs */
+  
+  .persona-container {
+    margin-bottom: 20px;
+  }
+  
+  .persona-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .persona-container h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .persona-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .persona-table th,
+  .persona-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .persona-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .persona-form {
+    margin-top: 20px;
+  }
+  
+  .persona-form .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .persona-form .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .persona-form .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .persona-form .btn-primary {
+    background-color: #007bff;
+  }
+  
+  .persona-form .btn-primary:hover {
+    background-color: #0069d9;
+  }
+  
+  .persona-form .btn-danger {
+    background-color: #dc3545;
+  }
+  
+  .persona-form .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  .center-button {
+    text-align: center;
+  }
+  

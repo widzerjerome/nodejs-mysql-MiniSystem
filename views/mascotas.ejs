@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div class="col-md-12 text-center">
+        <h2>Personas con Mascotas</h2>
+        <ul id="personasMascotasList" class="list-group"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <table class="table table-striped container mt-5">
+      <thead>
+        <tr>
+          <th scope="col">Número</th>
+          <th scope="col">Rut</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Nombre Mascota</th>
+          <th scope="col">Raza Mascota</th>
+          <th scope="col">Familia Mascota</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% personas.forEach(persona => { %>
+        <tr>
+          <td><%= persona.id %></td>
+          <td><%= persona.rut %></td>
+          <td><%= persona.Nombre_persona %></td>
+          <td><%= persona.Apellido %></td>
+          <td><%= persona.Nombre %></td>
+          <td><%= persona.Raza %></td>
+          <td><%= persona.Familia %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+
+</body>
+</html>
